@@ -1,0 +1,97 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --hex: rgba(110, 168, 255, 0.06);
+  color-scheme: dark;
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: #060912;
+  color: #e6ecf7;
+  font-family: 'Satoshi', system-ui, sans-serif;
+  overflow-x: hidden;
+}
+
+@layer base {
+  h1, h2, h3 {
+    font-family: 'Clash Display', sans-serif;
+    letter-spacing: -0.02em;
+  }
+}
+
+@layer utilities {
+  /* Living hex/grid substrate */
+  .bg-grid {
+    background-image:
+      linear-gradient(var(--hex) 1px, transparent 1px),
+      linear-gradient(90deg, var(--hex) 1px, transparent 1px);
+    background-size: 56px 56px;
+  }
+
+  .glass {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.015));
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(14px);
+  }
+
+  .glass-strong {
+    background: linear-gradient(180deg, rgba(22, 32, 56, 0.85), rgba(10, 14, 26, 0.75));
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    backdrop-filter: blur(20px);
+  }
+
+  .text-gradient {
+    background: linear-gradient(120deg, #ffffff 0%, #a9c8ff 55%, #5eead4 110%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .ice-ring {
+    box-shadow: 0 0 0 1px rgba(79, 139, 255, 0.4), 0 0 40px -8px rgba(79, 139, 255, 0.5);
+  }
+
+  .eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: #6ea8ff;
+  }
+
+  .noise::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.035;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+}
+
+::selection {
+  background: rgba(79, 139, 255, 0.35);
+  color: #fff;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: #060912; }
+::-webkit-scrollbar-thumb {
+  background: #1e2d4d;
+  border-radius: 99px;
+  border: 2px solid #060912;
+}
+::-webkit-scrollbar-thumb:hover { background: #2a3d63; }
