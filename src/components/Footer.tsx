@@ -16,6 +16,7 @@ export function Footer() {
           <a href="#how" className="hover:text-white">How it works</a>
           <a href="#integrations" className="hover:text-white">Integrations</a>
           <a href="#pricing" className="hover:text-white">Pricing</a>
+          <a href="/privacy.html" className="hover:text-white">Privacy</a>
           <a href={APP_URL} className="hover:text-white">Open app</a>
         </nav>
 
